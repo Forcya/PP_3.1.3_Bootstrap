@@ -130,8 +130,8 @@
                                                                         <label for="roles">Roles:</label>
                                                                         <select id="roles" class="custom-select bd-primary"
                                                                                 size="2" style="width: 210px" multiple name="roles">
-                                                                            <option th:selected="${editUser.containsRoleName('ROLE_ADMIN')}" value="2">ADMIN</option>
-                                                                            <option th:selected="${editUser.containsRoleName('ROLE_USER')}" value="1">USER</option>
+                                                                            <option th:selected="${editUser.containsRoleName('ROLE_ADMIN')}" value="1">ADMIN</option>
+                                                                            <option th:selected="${editUser.containsRoleName('ROLE_USER')}" value="2">USER</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -191,8 +191,8 @@
                                                                         <label for="rolesDel">Roles:</label>
                                                                         <select disabled id="rolesDel" class="custom-select bd-primary"
                                                                                 size="2" style="width: 210px" multiple name="roles">
-                                                                            <option th:selected="${deleteUser.containsRoleName('ROLE_ADMIN')}" value="2">ADMIN</option>
-                                                                            <option th:selected="${deleteUser.containsRoleName('ROLE_USER')}" value="1">USER</option>
+                                                                            <option th:selected="${deleteUser.containsRoleName('ROLE_ADMIN')}" value="1">ADMIN</option>
+                                                                            <option th:selected="${deleteUser.containsRoleName('ROLE_USER')}" value="2">USER</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -258,8 +258,8 @@
                                     <div class="form-group">
                                         <label for="role">Role</label><br>
                                         <select style="width: 100%" class="custom-select" id="role" size="2" multiple name="roles">
-                                            <option value="2">ADMIN</option>
-                                            <option value="1">USER</option>
+                                            <option value="1">ADMIN</option>
+                                            <option value="2">USER</option>
                                         </select><br>
                                     </div>
                                     <button type="submit" class="btn btn-success">Add new user</button>
