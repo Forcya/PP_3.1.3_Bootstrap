@@ -53,12 +53,13 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    // преобразуем коллекцию ролей в коллекцию строк (если начинается с ROLE_, то обрезаем ROLE_)
     public Set<String> getNamesOfRoles() {
         return getRoles().stream().map(Role::getName)
                 .map(name -> name.startsWith("ROLE_") ? name.substring(5) : name).collect(Collectors.toSet());
     }
 
-    //Метод для вывода имеющихся у User-а ролей на View (update)
+    //Метод для вывода имеющихся у User-а ролей на View (update) - возвращает boolean
     public boolean containsRoleName(String roleName) {
         return roles.stream().map(Role::getName).collect(Collectors.toList()).contains(roleName);
     }
