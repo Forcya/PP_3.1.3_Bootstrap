@@ -10,7 +10,7 @@ import springsecurity.bootstrap.service.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rest/api")
+@RequestMapping("/api")
 public class MyRestController {
 
     @Autowired

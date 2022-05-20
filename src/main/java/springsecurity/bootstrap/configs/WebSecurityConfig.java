@@ -32,13 +32,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
 //                .anyRequest().hasAnyRole("ADMIN", "USER")
-                .antMatchers("/rest/api/**").permitAll()
+                .antMatchers("/api/**").permitAll()
                 .and()
                 .formLogin().successHandler(successUserHandler)
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll(); //доступен всем
+                .permitAll() //доступен всем
+                .and()
+                .csrf().disable();
     }
 
     //Для использования данных для аутентификации из БД
