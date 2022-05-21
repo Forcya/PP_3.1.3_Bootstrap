@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import springsecurity.bootstrap.entity.User;
 import springsecurity.bootstrap.service.UserService;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -17,6 +18,7 @@ public class MyRestController {
     private UserService userService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    private static final String BCRYP_TYPE = "$";
 
 
     @GetMapping("/users")
@@ -30,14 +32,19 @@ public class MyRestController {
     }
 
     @PostMapping("/users")
-    public void addNewUser(@RequestBody User user) {
+    public void addNewUser(@RequestBody User user, Principal principal) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        if (!userService.getUserByUsername(principal.getName()).getPassword().startsWith(BCRYP_TYPE)) {
+            user.setPassword(passwordEncoder.encode(user.getPassword())); //У юзера получаем пароль, кодируем его и сетаем в поле пароль обратно
+        }
         userService.saveUser(user);
     }
 
     @PutMapping("/users")
-    public void updateUser(@RequestBody User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+    public void updateUser(@RequestBody User user, Principal principal) {
+        if (!userService.getUserByUsername(principal.getName()).getPassword().startsWith(BCRYP_TYPE)) {
+            user.setPassword(passwordEncoder.encode(user.getPassword())); //У юзера получаем пароль, кодируем его и сетаем в поле пароль обратно
+        }
         userService.updateUser(user);
     }
 
