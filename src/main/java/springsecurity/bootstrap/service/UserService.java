@@ -25,7 +25,7 @@ public class UserService {
     }
 
     public User getUser(long id) {
-        return userDao.getById(id);
+        return userDao.findById(id).get(); //Меняем с getById(id) на findById(id).get()
     }
 
     public void deleteUser(long id) {

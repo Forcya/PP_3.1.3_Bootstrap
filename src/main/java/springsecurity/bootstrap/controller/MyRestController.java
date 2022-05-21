@@ -18,9 +18,6 @@ public class MyRestController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public MyRestController() {
-    }
-
 
     @GetMapping("/users")
     public List<User> getAllUsers() {

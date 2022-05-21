@@ -4,7 +4,6 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
@@ -17,8 +16,8 @@ public class Role implements GrantedAuthority {
 
     @Column(name ="name")
     private String name;
-    @ManyToMany(mappedBy = "roles")
-    public Set<User> users;
+//    @ManyToMany(mappedBy = "roles")
+//    public Set<User> users; //Получается бесконечный цикл
 
     public Role() {
     }
@@ -31,6 +30,8 @@ public class Role implements GrantedAuthority {
         this.id = id;
         this.name = name;
     }
+
+    public String getOnlyName() { return name.substring(5); }
 
     @Override
     public String getAuthority() {
