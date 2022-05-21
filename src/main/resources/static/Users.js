@@ -92,7 +92,7 @@ function editModalOpen(e, id) {
             let controlAge = document.getElementById('ageEdit')
             let controlEmail = document.getElementById('emailEdit')
             let controlUsername = document.getElementById('usernameEdit')
-            let controlPassword = document.getElementById('passwordEdit')
+            let controlPassword = document.getElemexntById('passwordEdit')
             let controlRoles = document.getElementById('rolesEdit')
             let optionSelect = controlRoles.getElementsByTagName('option')
 
