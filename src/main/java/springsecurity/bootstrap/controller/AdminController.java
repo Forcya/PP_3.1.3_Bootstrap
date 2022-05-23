@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import springsecurity.bootstrap.entity.User;
-import springsecurity.bootstrap.service.RoleService;
-import springsecurity.bootstrap.service.UserService;
+import springsecurity.bootstrap.service.RoleServiceImpl;
+import springsecurity.bootstrap.service.UserServiceImpl;
 
 import java.security.Principal;
 
@@ -17,9 +17,9 @@ import java.security.Principal;
 public class AdminController {
 
     @Autowired
-    private UserService userService;  //Чтобы не создавать объект используем Di
+    private UserServiceImpl userService;  //Чтобы не создавать объект используем Di
     @Autowired
-    private RoleService roleService;
+    private RoleServiceImpl roleService;
     @Autowired
     private PasswordEncoder passwordEncoder;
     private static final String BCRYP_TYPE = "$";
