@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import springsecurity.bootstrap.entity.User;
-import springsecurity.bootstrap.service.UserService;
+import springsecurity.bootstrap.service.UserServiceImpl;
 
 import java.security.Principal;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 public class MyRestController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
     @Autowired
     private PasswordEncoder passwordEncoder;
     private static final String BCRYP_TYPE = "$";

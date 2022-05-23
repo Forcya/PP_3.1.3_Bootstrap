@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import springsecurity.bootstrap.service.UserService;
+import springsecurity.bootstrap.service.UserServiceImpl;
 
 
 import java.security.Principal;
@@ -13,7 +13,7 @@ import java.security.Principal;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @GetMapping("/user")
     public String getUser(Principal principal, Model model) {

@@ -12,10 +12,10 @@ import springsecurity.bootstrap.entity.User;
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @Autowired
-    public UserDetailServiceImpl(UserService userService) {
+    public UserDetailServiceImpl(UserServiceImpl userService) {
         this.userService = userService;
     }
 
